@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,25 +12,25 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link href="css/materialize.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
+	media="screen" />
 <link href="css/style.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
+	media="screen" />
 </head>
 
 <body>
 
 
+	<!--  bannière -->
 	<div id="index-banner" class="parallax-container">
 		<div class="section no-pad-bot">
-			<div class="container">
-				<br> <br>
-				<h1 class="header center teal-text text-grey darken">Chez R.</h1>
-				<div class="row center">
-					<i class="center teal-text text-grey medium material-icons">grade
-						grade grade grade</i>
+			<div class="banniere">
+				<div class="">
+					<h1 class="header center teal-text text-grey darken-4">Chez R.</h1>
+					<div class="row center">
+						<i class="center teal-text text-grey medium material-icons">grade
+							grade grade grade</i>
+					</div>
 				</div>
-				<br> <br>
-
 			</div>
 		</div>
 		<div class="parallax">
@@ -38,8 +38,9 @@
 		</div>
 	</div>
 
-	<nav class="white" role="navigation">
+	<nav class="white">
 	<div class="nav-wrapper container">
+
 		<!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> -->
 		<ul class="center hide-on-med-and-down">
 			<li><a href="index.html">LA MAISON</a></li>
@@ -57,38 +58,40 @@
 	</div>
 	</nav>
 
-
-
 	<!-- ici commence le new code -->
 	<div class="container">
-		<form method="post" action="/co.simplon.maisonDHote/ResaServlet"> <!-- chemin du servlet (@webservlet), on met ce qu on veut -->
+		<form method="post" action="/co.simplon.maisonDHote/ResaServlet">
+
+			<!-- chemin du servlet (@webservlet), on met ce qu on veut -->
 			<div class="row">
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">face</i> <input id="icon_prefix"
-						type="text" class="validate" name="nom"> <label
+					<i class="material-icons prefix">face</i> <input id="icon_nom"
+						type="text" class="validate" pattern="^[a-zA-Z]+$"
+						title="Attention, seulement des lettres!" name="nom" required> <label
 						for="icon_prefix">Nom</label>
 				</div>
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">face</i> <input id="icon_prefix"
-						type="text" class="validate" name="prenom"> <label
+					<i class="material-icons prefix">face</i> <input id="icon_prenom"
+						type="text" class="validate" name="prenom" pattern="^[a-zA-Z]+$" required> <label
 						for="icon_prefix">Prénom</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12 m6">
 					<i class="material-icons prefix">email</i> <input
-						id="icon_telephone" type="tel" class="validate" name="mail">
+						id="icon_mail" type="tel" class="validate" name="mail" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="E-mail non valide"
+                        required>
 					<label for="icon_telephone">Courriel</label>
 				</div>
 				<div class="input-field col s12 m6">
 					<i class="material-icons prefix">phone</i> <input
-						id="icon_telephone" type="tel" class="validate" name="tel">
+						id="icon_telephone" type="tel" class="validate" name="tel" pattern="^[0-9]{10}$" required>
 					<label for="icon_telephone">Telephone</label>
 				</div>
 			</div>
 
 
-
+	<!-- menus déroulants -->
 			<div class="row">
 				<div class="input-field col s12 m6">
 					<i class="material-icons prefix">group_add</i> <select>
@@ -125,26 +128,39 @@
 					</select>
 				</div>
 			</div>
-			<div class="col s12 ">
 
-				<!-- option -->
-				<div class="col s6 ">
-					<center>
-						<h5>Option 10€ par jour et par Option</h5>
-					</center>
-					</BR> <input type="checkbox" id="test1" /> <label class="col s12 m4"
-						for="test1">Animal&nbsp;</label> <input type="checkbox" id="test2" />
-					<label class="col s12 m4 " for="test2">Parking&nbsp;</label> <input
-						type="checkbox" id="test3" /> <label class="col s12 m4"
-						for="test3">Fumeur&nbsp;</label>
+			<!-- durée séjour  -->
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">date_range</i> <input type="text"
+						class="datepicker"> <label for="icon_telephone">Date
+						d'arrivée</label>
 				</div>
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">hotel</i> <input id="icon_prefix"
+						type="text" class="validate"> <label for="icon_prefix">Nombre
+						de nuits</label>
+				</div>
+			</div>
+
+			<div class="col s12">
+
+				<!-- options -->
+				<div class="col s6">
+					<h5>Supplément de 10€ par jour et par option</h5>
+					<br> <input type="checkbox" id="test1" /> <label
+						class="col s12 m4" for="test1">Animal&nbsp;</label> <input
+						type="checkbox" id="test2" /> <label class="col s12 m4 "
+						for="test2">Parking&nbsp;</label> <input type="checkbox"
+						id="test3" /> <label class="col s12 m4" for="test3">Petit
+						Déjeuner&nbsp;</label>
+				</div>
+				<br>
 
 				<!-- type sejour -->
 				<div class="col s6 ">
-					<center>
-						<h5>Type de Sejour</h5>
-					</center>
-					</BR> <label class="col s12 m4 "></label> <input name="group1"
+					<h5>Type de Sejour</h5>
+					<br> <label class="col s12 m4 "></label> <input name="group1"
 						type="radio" id="test4" /> <label class="col s12 m4 " for="test4">Loisir</label>
 					<input name="group1" type="radio" id="test5" /> <label
 						class="col s12 m4 " for="test5">Professionnel</label>
@@ -154,23 +170,23 @@
 			<div class="row">
 
 
+				<!-- boutons d'envoi -->
 				<div class="input-field col s12 m6">
 					<button class="btn waves-effect waves-light" type="submit"
-						name="action">
+						value="envoyer">
 						Envoyer <i class="material-icons right">send</i>
 					</button>
 				</div>
 
 
-				<div class="input-field col s12 m6">
-					<button class="btn waves-effect waves-light" type="button"
-						name="action">
+				<div class="input-field col s12 m6" id="view">
+					<button class="btn waves-effect waves-light" type="button">
 						Estimation <i class="material-icons right">euro_symbol</i>
 					</button>
+					<input value="" id="tarif" type="text"> <label>Tarif</label>
+					<input value="" id="total" type="text"> <label>Total</label>
 				</div>
 			</div>
-
-
 		</form>
 	</div>
 
@@ -201,13 +217,16 @@
 			<div>
 				<a class="mt-facebook mt-share-inline-bar-sm"
 					href="https://www.facebook.com/sharer/sharer.php?u="> <img
-					src="http://mojotech-static.s3.amazonaws.com/facebook@2x.png">
+					src="http://mojotech-static.s3.amazonaws.com/facebook@2x.png"
+					alt="Suivez-nous!">
 				</a> <a class="mt-twitter mt-share-inline-bar-sm"
 					href="http://twitter.com/intent/tweet?text=&amp;url="> <img
-					src="http://mojotech-static.s3.amazonaws.com/twitter@2x.png">
+					src="http://mojotech-static.s3.amazonaws.com/twitter@2x.png"
+					alt="Suivez-nous!">
 				</a> <a class="mt-google mt-share-inline-bar-sm"
 					href="https://plus.google.com/share?url="> <img
-					src="http://mojotech-static.s3.amazonaws.com/google@2x.png">
+					src="http://mojotech-static.s3.amazonaws.com/google@2x.png"
+					alt="Suivez-nous!">
 				</a>
 			</div>
 		</div>
@@ -219,6 +238,8 @@
 		</div>
 	</div>
 	</footer>
+
+
 	<!-- bouton flottant, merci Sylvain-->
 	<div class="fixed-action-btn">
 		<a class="waves-effect btn-floating btn-medium z-depth-4" href="#top"><i

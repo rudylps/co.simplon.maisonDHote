@@ -60,3 +60,8 @@ div {
     text-align: justify;
     text-justify: inter-word;
 }
+
+.banniere {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
