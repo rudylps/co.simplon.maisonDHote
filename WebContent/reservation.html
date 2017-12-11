@@ -42,6 +42,8 @@
 	<div class="nav-wrapper container">
 
 		<!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> -->
+		
+		<!--  menu  -->
 		<ul class="center hide-on-med-and-down">
 			<li><a href="index.html">LA MAISON</a></li>
 			<li><a href="region.html">LA REGION</a></li>
@@ -60,32 +62,29 @@
 
 	<!-- ici commence le new code -->
 	<div class="container">
-		<form method="post" action="/co.simplon.maisonDHote/ResaServlet">
+		<form action="IndexServlet" method="post">
 
 			<!-- chemin du servlet (@webservlet), on met ce qu on veut -->
 			<div class="row">
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">face</i> <input id="icon_nom"
-						type="text" class="validate" pattern="^[a-zA-Z]+$"
-						title="Attention, seulement des lettres!" name="nom" required> <label
-						for="icon_prefix">Nom</label>
+					<i class="material-icons prefix">face</i>
+					<input id="icon_nom" type="text" class="validate" pattern="^[a-zA-Z]+$" title="Attention, seulement des lettres!" name="nom" required>
+						<label for="icon_prefix">Nom</label>
 				</div>
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">face</i> <input id="icon_prenom"
-						type="text" class="validate" name="prenom" pattern="^[a-zA-Z]+$" required> <label
-						for="icon_prefix">Prénom</label>
+					<i class="material-icons prefix">face</i>
+					<input id="icon_prenom" type="text" class="validate" name="prenom" pattern="^[a-zA-Z]+$" required>
+					<label for="icon_prefix">Prénom</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">email</i> <input
-						id="icon_mail" type="tel" class="validate" name="mail" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="E-mail non valide"
-                        required>
+					<i class="material-icons prefix">email</i>
+					<input id="icon_mail" type="tel" class="validate" name="mail" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" title="E-mail non valide" required>
 					<label for="icon_telephone">Courriel</label>
 				</div>
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">phone</i> <input
-						id="icon_telephone" type="tel" class="validate" name="tel" pattern="^[0-9]{10}$" required>
+					<i class="material-icons prefix">phone</i> <input id="icon_telephone" type="tel" class="validate" name="tel" pattern="^[0-9]{10}$" required>
 					<label for="icon_telephone">Telephone</label>
 				</div>
 			</div>
@@ -231,6 +230,7 @@
 			</div>
 		</div>
 	</div>
+	<!--  Copyright -->
 	<div class="footer-copyright">
 		<div class="container">
 			Copié-colled by <a class="brown-text text-lighten-3"
@@ -240,7 +240,7 @@
 	</footer>
 
 
-	<!-- bouton flottant, merci Sylvain-->
+	<!-- bouton flottant remonter, merci Sylvain-->
 	<div class="fixed-action-btn">
 		<a class="waves-effect btn-floating btn-medium z-depth-4" href="#top"><i
 			class="medium material-icons">arrow_upward</i></a>
