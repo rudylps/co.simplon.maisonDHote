@@ -62,10 +62,11 @@
 
 	<!-- ici commence le new code -->
 	<div class="container">
-		<form action="IndexServlet" method="post">
+		<form action="EnregistrerResa" method="post">
 
 			<!-- chemin du servlet (@webservlet), on met ce qu on veut -->
 			<div class="row">
+			<div class="center"><h4>Réservez dès maintenant</h4></div>
 				<div class="input-field col s12 m6">
 					<i class="material-icons prefix">face</i>
 					<input id="icon_nom" type="text" class="validate" pattern="^[a-zA-Z]+$" title="Attention, seulement des lettres!" name="nom" required>
@@ -93,9 +94,9 @@
 	<!-- menus déroulants -->
 			<div class="row">
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">group_add</i> <select>
-						<option value="" disabled selected>Nombre de personne(s)
-							:</option>
+					<i class="material-icons prefix">group_add</i>
+					<select  name="nbPersonne">
+						<option value="" disabled selected>Nombre de personne(s) :</option>
 						<option value="1">1 clampin</option>
 						<option value="2">couple</option>
 						<option value="3">trouple (!!)</option>
@@ -130,39 +131,47 @@
 
 			<!-- durée séjour  -->
 			<div class="row">
+			
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">date_range</i> <input type="text"
-						class="datepicker"> <label for="icon_telephone">Date
-						d'arrivée</label>
+					<i class="material-icons prefix">date_range</i>
+					<input type="text" class="datepicker">
+					<label for="icon_telephone">Date d'arrivée</label>
 				</div>
+				
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">hotel</i> <input id="icon_prefix"
-						type="text" class="validate"> <label for="icon_prefix">Nombre
-						de nuits</label>
+					<i class="material-icons prefix">hotel</i>
+					<input id="icon_prefix" type="text" class="validate" name="nbNuit">
+					<label for="icon_prefix">Nombre de nuits</label>
 				</div>
 			</div>
 
 			<div class="col s12">
 
 				<!-- options -->
-				<div class="col s6">
-					<h5>Supplément de 10€ par jour et par option</h5>
-					<br> <input type="checkbox" id="test1" /> <label
-						class="col s12 m4" for="test1">Animal&nbsp;</label> <input
-						type="checkbox" id="test2" /> <label class="col s12 m4 "
-						for="test2">Parking&nbsp;</label> <input type="checkbox"
-						id="test3" /> <label class="col s12 m4" for="test3">Petit
-						Déjeuner&nbsp;</label>
+				<div class="col s12 m6">
+					<h6>Supplément de 10€ par jour et par option</h6>
+					<br>
+					<input type="checkbox" name="animal" id="test1" />
+					<label class="col s12 m4" for="test1">Animal&nbsp;</label>
+					
+					<input type="checkbox" name="parking" id="test2" />
+					<label class="col s12 m4 " for="test2">Parking&nbsp;</label>
+					
+					<input type="checkbox" name="dej" id="test3" />
+					<label class="col s12 m4" for="test3">Petit Déjeuner&nbsp;</label>
+					
 				</div>
 				<br>
 
 				<!-- type sejour -->
-				<div class="col s6 ">
-					<h5>Type de Sejour</h5>
-					<br> <label class="col s12 m4 "></label> <input name="group1"
-						type="radio" id="test4" /> <label class="col s12 m4 " for="test4">Loisir</label>
-					<input name="group1" type="radio" id="test5" /> <label
-						class="col s12 m4 " for="test5">Professionnel</label>
+				<div class="col s12 m6">
+					<h6>Type de Sejour</h6>
+					<br>
+					<label class="col s12 m4 "></label>
+					<input name="group1" type="radio" id="value1" value="loisir"/>
+					<label class="col s12 m4 " for="value1">Loisir</label>
+					<input name="group1" type="radio" id="value2" value="professionnel"/>
+					<label class="col s12 m4 " for="value2">Professionnel</label>
 				</div>
 
 			</div>
@@ -171,19 +180,8 @@
 
 				<!-- boutons d'envoi -->
 				<div class="input-field col s12 m6">
-					<button class="btn waves-effect waves-light" type="submit"
-						value="envoyer">
-						Envoyer <i class="material-icons right">send</i>
+					<button class="btn waves-effect waves-light" type="submit" value="envoyer">Récapitulatif<i class="material-icons right">send</i>
 					</button>
-				</div>
-
-
-				<div class="input-field col s12 m6" id="view">
-					<button class="btn waves-effect waves-light" type="button">
-						Estimation <i class="material-icons right">euro_symbol</i>
-					</button>
-					<input value="" id="tarif" type="text"> <label>Tarif</label>
-					<input value="" id="total" type="text"> <label>Total</label>
 				</div>
 			</div>
 		</form>
