@@ -19,8 +19,8 @@
 </head>
 <body style="text-align:center;">
 		<h5>Liste des reservations :</h5>
-		
-		<table class="striped">
+		<br></br>
+		<table class="highlight responsive-table">
 		<tr>
 			<th>Nom</th>
 			<th>Prenom</th>
@@ -68,7 +68,7 @@
 		%>
 		</table>
 		
-		<a href="http://localhost:8080/co.simplon.maisonDHote/reservation.html">Retour à la réservation</a>
+		<br><a href="http://localhost:8080/co.simplon.maisonDHote/reservation.html">Retour à la réservation</a></br>
 
 </body>
 </html>

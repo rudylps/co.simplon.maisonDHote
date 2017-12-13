@@ -50,7 +50,7 @@ public class IndexServlet extends HttpServlet {
 		newReservation.setNom(request.getParameter("nom"));
 		newReservation.setPrenom(request.getParameter("prenom"));
 		newReservation.setMail(request.getParameter("mail"));
-		newReservation.setMail(request.getParameter("tel"));
+		newReservation.setTel(request.getParameter("tel"));
 		
 		try {
 		// newReservation.setNbPersonne(request.getParameter("nbPersonne"));
