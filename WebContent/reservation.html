@@ -62,7 +62,7 @@
 
 	<!-- ici commence le new code -->
 	<div class="container">
-		<form action="EnregistrerResa" method="post">
+		<form action="IndexServlet" method="post">
 
 			<!-- chemin du servlet (@webservlet), on met ce qu on veut -->
 			<div class="row">
@@ -85,7 +85,8 @@
 					<label for="icon_telephone">Courriel</label>
 				</div>
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">phone</i> <input id="icon_telephone" type="tel" class="validate" name="tel" pattern="^[0-9]{10}$" required>
+					<i class="material-icons prefix">phone</i>
+					<input id="icon_telephone" type="tel" class="validate" name="tel" pattern="^[0-9]{10}$" required>
 					<label for="icon_telephone">Telephone</label>
 				</div>
 			</div>
@@ -108,7 +109,8 @@
 
 
 				<div class="input-field col s12 m6">
-					<i class="material-icons prefix">location_on</i> <select>
+					<i class="material-icons prefix">location_on</i>
+					<select name="region">
 						<option value="" disabled selected>Région d'origine :</option>
 						<option value="1">Auvergne-Rhône-Alpes</option>
 						<option value="2">Bourgogne-Franche-Comté</option>
@@ -134,7 +136,7 @@
 			
 				<div class="input-field col s12 m6">
 					<i class="material-icons prefix">date_range</i>
-					<input type="text" class="datepicker">
+					<input type="text" class="datepicker" name="dateArrivee">
 					<label for="icon_telephone">Date d'arrivée</label>
 				</div>
 				
@@ -180,7 +182,8 @@
 
 				<!-- boutons d'envoi -->
 				<div class="input-field col s12 m6">
-					<button class="btn waves-effect waves-light" type="submit" value="envoyer">Récapitulatif<i class="material-icons right">send</i>
+					<button class="btn waves-effect waves-light" type="submit" value="envoyer">Récapitulatif
+					<i class="material-icons right">send</i>
 					</button>
 				</div>
 			</div>

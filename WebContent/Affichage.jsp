@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -42,7 +42,7 @@
 	<div class="nav-wrapper container">
 
 		<!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> -->
-		
+
 		<!--  menu  -->
 		<ul class="center hide-on-med-and-down">
 			<li><a href="index.html">LA MAISON</a></li>
@@ -61,60 +61,92 @@
 	</nav>
 
 	<div class="row">
-        <div class="col s12 center">
-	<p><h4>Récapitulatif de votre réservation :</h4></p>
-	
-	<div class="col s12 m4 center">
-            <h5 class="center">Vous</h5>
-	<!-- champs obligatoires -->
-	<p>Nom : <b><%=request.getParameter("nom")%></b></p>
-	<p>Prénom : <b><%=request.getParameter("prenom")%></b></p>
-	<p>Mail : <b><%=request.getParameter("mail")%></b></p>
-	<p>Téléphone : <b><%=request.getParameter("tel")%></b></p>
+		<div class="col s12 center">
+			<p>
+			<h4>Récapitulatif de votre réservation :</h4>
+			</p>
+
+			<div class="col s12 m4 center">
+				<h5 class="center">Vous</h5>
+				<!-- champs obligatoires -->
+				<p>
+					Nom : <b><%=request.getParameter("nom")%></b>
+				</p>
+				<p>
+					Prénom : <b><%=request.getParameter("prenom")%></b>
+				</p>
+				<p>
+					Mail : <b><%=request.getParameter("mail")%></b>
+				</p>
+				<p>
+					Téléphone : <b><%=request.getParameter("tel")%></b>
+				</p>
+			</div>
+
+			<div class="col s12 m4 center">
+				<h5 class="center">Les options ( + 10€ )</h5>
+				<!-- checkbox -->
+				<p>
+					Animal :
+					<%
+					String affichage;
+					if (request.getParameter("animal") == null)
+						affichage = "non";
+					else
+						affichage = "oui";
+				%>
+					<b><%=affichage%></b>
+				</p>
+				<p>
+					Parking :
+					<%
+					if (request.getParameter("parking") == null)
+						affichage = "non";
+					else
+						affichage = "oui";
+				%>
+					<b><%=affichage%></b>
+				</p>
+				<p>
+					Petit déjeuner :
+					<%
+					if (request.getParameter("dej") == null)
+						affichage = "non";
+					else
+						affichage = "oui";
+				%>
+					<b><%=affichage%></b>
+				</p>
+			</div>
+
+
+			<div class="col s12 m4 center">
+				<h5 class="center">Confirmation</h5>
+				<p>
+					Vous avez commandé un séjour de type <b><%=request.getParameter("group1")%></b>
+					pour <b><%=request.getParameter("nbPersonne")%></b> personne(s)
+					pendant <b><%=request.getParameter("nbNuit")%></b> nuit(s), à
+					partir du <b><%=request.getParameter("dateArrivee")%></b>.
+				</p>
+				<p>Vous pouvez régler la somme de ... dès à présent pour
+					réserver votre séjour.</p>
+			</div>
+			<!-- affichage du devis, bouton confirmation, bouton impression de la facture -->
+
+			<!-- bouton pour afficher la liste des resas -->
+			<!-- <form action="ServletListe" method="post">
+<div class="input-field col s12 m6">
+					<button class="btn waves-effect waves-light" type="submit" value="envoyer">Liste des réservations
+					<i class="material-icons right">send</i>
+					</button>
+				</div>
+				</form> -->
+
+			<a href="ServletListe">Liste des réservations</a>
+
+
+		</div>
 	</div>
-	
-	<div class="col s12 m4 center">
-            <h5 class="center">Les options</h5>
-	<!-- checkbox -->
-	<p>Animal :
-	<% String affichage;
-	if (request.getParameter("animal") == null)
-		affichage = "non";
-	else
-		affichage = "oui"; %>
-	<b><%=affichage%></b>
-	</p>
-	<p>Parking :
-	<% if (request.getParameter("parking") == null)
-		affichage = "non";
-	else
-		affichage = "oui"; %>
-	<b><%=affichage%></b>
-	</p>
-	<p>Petit déjeuner :
-	<% if (request.getParameter("dej") == null)
-		affichage = "non";
-	else
-		affichage = "oui"; %>
-	<b><%=affichage%></b>
-	</p>
-	</div>
-	
-
-	<div class="col s12 m4 center">
-            <h5 class="center">Confirmation</h5>
-            <p>Vous avez commandé un séjour de type <b><%=request.getParameter("group1")%></b> 
-            pour <b><%=request.getParameter("nbPersonne")%></b> personne(s) 
-            pendant <b><%=request.getParameter("nbNuit")%></b> nuit(s), à partir du.</p>
-            <p>Vous pouvez régler la somme de ... dès à présent pour réserver votre séjour.
-            </p></div>
-<!-- affichage du devis, bouton confirmation, bouton impression de la facture -->
-
-
-
-
-</div>
-</div>
 
 	<footer class="page-footer teal">
 	<div class="container">
