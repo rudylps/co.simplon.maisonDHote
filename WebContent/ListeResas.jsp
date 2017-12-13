@@ -9,7 +9,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Liste des réservations</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- CSS  -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="css/materialize.css" type="text/css" rel="stylesheet"
+	media="screen" />
+<link href="css/style.css" type="text/css" rel="stylesheet"
+	media="screen" />
 </head>
 <body style="text-align:center;">
 		<h5>Liste des reservations :</h5>
@@ -61,6 +67,8 @@
 			}
 		%>
 		</table>
+		
+		<a href="http://localhost:8080/co.simplon.maisonDHote/reservation.html">Retour à la réservation</a>
 
 </body>
 </html>

@@ -142,7 +142,7 @@
 				</div>
 				</form> -->
 
-			<a href="ServletListe">Liste des réservations</a>
+			<a href="IndexServlet">Liste des réservations</a>
 
 
 		</div>
