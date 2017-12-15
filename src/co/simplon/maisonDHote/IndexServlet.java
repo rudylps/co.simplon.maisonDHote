@@ -1,6 +1,8 @@
 package co.simplon.maisonDHote;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,56 +46,54 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String nom=request.getParameter("nom");
+		String prenom=request.getParameter("prenom");
+		String mail=request.getParameter("mail");
+		String tel=request.getParameter("tel");
+		int nbPersonne=Integer.parseInt(request.getParameter("nbPersonne"));
+		String region=request.getParameter("region");
+		String dateArrivee=request.getParameter("dateArrivee");
+		int nbNuit=Integer.parseInt(request.getParameter("nbNuit"));
+		boolean animal=request.getParameter("animal") != null;
+		boolean parking=request.getParameter("parking") != null;
+		boolean dej = request.getParameter("dej") != null;
+		String typeSejour = request.getParameter("group1");
 		
 		//création d'une résa
 		Reservation newReservation = new Reservation();
-		newReservation.setNom(request.getParameter("nom"));
-		newReservation.setPrenom(request.getParameter("prenom"));
-		newReservation.setMail(request.getParameter("mail"));
-		newReservation.setTel(request.getParameter("tel"));
 		
+		newReservation.setNom(nom);
+		newReservation.setPrenom(prenom);
+		newReservation.setMail(mail);
+		newReservation.setTel(tel);
+		newReservation.setNbPersonne(nbPersonne);
+		newReservation.setRegion(region);
+		newReservation.setDateArrivee(dateArrivee);
+		newReservation.setNbNuit(nbNuit);
+		newReservation.setAnimal(animal);
+		newReservation.setParking(parking);
+		newReservation.setDej(dej);
+		newReservation.setTypeSejour(typeSejour);
+		
+		ConnexionSQL connexion = new ConnexionSQL(); //cree obj connexion
 		try {
-		// newReservation.setNbPersonne(request.getParameter("nbPersonne"));
-		newReservation.setNbPersonne(Integer.parseInt(request.getParameter("nbPersonne")));
-		} catch (Exception e) {
-			newReservation.setNbPersonne(0);
-		}
-		
-		newReservation.setRegion(request.getParameter("region"));
-		newReservation.setDateArrivee(request.getParameter("dateArrivee"));
-		
-		try {
-		// newReservation.setNbNuit(request.getParameter("nbNuit"));
-		newReservation.setNbNuit(Integer.parseInt(request.getParameter("nbNuit")));
-		} catch (Exception e) {
-			newReservation.setNbPersonne(0);
-		}
-		
-		try {
-			newReservation.setAnimal(Boolean.parseBoolean(request.getParameter("animal")));
-		} catch (Exception e) {
-			newReservation.setAnimal(false);
+			connexion.initConnexion(); //méthode pr init connexion
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
 		try {
-			newReservation.setParking(Boolean.parseBoolean(request.getParameter("parking")));
-		} catch (Exception e) {
-			newReservation.setParking(false);
+			connexion.insertData(nom, prenom, mail, tel); //va inserer les donnees au niveau de la base
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		try {
-			newReservation.setDej(Boolean.parseBoolean(request.getParameter("dej")));
-		} catch (Exception e) {
-			newReservation.setDej(false);
-		}
-		
-		newReservation.setLoisir(request.getParameter("loisir"));
-		newReservation.setProfessionnel(request.getParameter("professionnel"));
-		
 		
 		// envoie la requete vers l'affichage
 		request.setAttribute("reservation", newReservation);
-		ResaManager.getInstance().getResas(newReservation);
+		ResaManager.getInstance().getResas(newReservation); //revoie l'instance de mon singleton
 		request.setAttribute("resas", ResaManager.getInstance().getResas().values());
 		getServletContext().getRequestDispatcher("/Affichage.jsp").forward(request, response);
 	}

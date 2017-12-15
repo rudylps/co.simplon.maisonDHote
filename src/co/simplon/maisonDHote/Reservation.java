@@ -13,8 +13,7 @@ public class Reservation {
 	private boolean animal;
 	private boolean parking;
 	private boolean dej;
-	private String loisir;
-	private String professionnel;
+	private String typeSejour;
 	
 	public String getNom() {
 		return nom;
@@ -82,17 +81,11 @@ public class Reservation {
 	public void setDej(boolean dej) {
 		this.dej = dej;
 	}
-	public String getLoisir() {
-		return loisir;
+	public String getTypeSejour() {
+		return typeSejour;
 	}
-	public void setLoisir(String loisir) {
-		this.loisir = loisir;
-	}
-	public String getProfessionnel() {
-		return professionnel;
-	}
-	public void setProfessionnel(String professionnel) {
-		this.professionnel = professionnel;
+	public void setTypeSejour(String typeSejour) {
+		this.typeSejour = typeSejour;
 	}
 	
 	

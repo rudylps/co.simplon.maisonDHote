@@ -33,8 +33,7 @@
 			<th>Animal</th>
 			<th>Parking</th>
 			<th>Petit Déj</th>
-			<th>Loisir</th>
-			<th>Pro</th>
+			<th>Séjour</th>
 			<!-- <th>Date</th> -->
 		</tr>
 		<%
@@ -59,8 +58,7 @@
 						<td><%=serveur.isAnimal()%></td>
 						<td><%=serveur.isParking()%></td>
 						<td><%=serveur.isDej()%></td>
-						<td><%=serveur.getLoisir()%></td>
-						<td><%=serveur.getProfessionnel()%></td>
+						<td><%=serveur.getTypeSejour()%></td>
 						<%-- <td><%=dateFormater.format(serveur.getDateEnregistrement())%></td> --%>
 					</tr>
 		<%      }
