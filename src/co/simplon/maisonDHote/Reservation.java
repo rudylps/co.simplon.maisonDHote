@@ -14,7 +14,14 @@ public class Reservation {
 	private boolean parking;
 	private boolean dej;
 	private String typeSejour;
+	private int prixTotal;
 	
+	public int getPrixTotal() {
+		return prixTotal;
+	}
+	public void setPrixTotal(int prixTotal) {
+		this.prixTotal = prixTotal;
+	}
 	public String getNom() {
 		return nom;
 	}

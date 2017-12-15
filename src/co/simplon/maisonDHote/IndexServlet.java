@@ -59,6 +59,21 @@ public class IndexServlet extends HttpServlet {
 		boolean dej = request.getParameter("dej") != null;
 		String typeSejour = request.getParameter("group1");
 		
+		// calcul prix
+		int prixDeBase = 60 * (nbPersonne * nbNuit);
+		int prixOption = 0;
+		if (animal) {
+				prixOption =+ 10;
+		}
+		if (parking) {
+				prixOption =+ 10;
+			}
+		if (dej) {
+				prixOption =+ 10;
+			}
+		int prixTotal = prixOption + prixDeBase;
+		
+		
 		//création d'une résa
 		Reservation newReservation = new Reservation();
 		
@@ -74,6 +89,7 @@ public class IndexServlet extends HttpServlet {
 		newReservation.setParking(parking);
 		newReservation.setDej(dej);
 		newReservation.setTypeSejour(typeSejour);
+		newReservation.setPrixTotal(prixTotal);
 		
 		ConnexionSQL connexion = new ConnexionSQL(); //cree obj connexion
 		try {
@@ -85,7 +101,7 @@ public class IndexServlet extends HttpServlet {
 		}
 		
 		try {
-			connexion.insertData(nom, prenom, mail, tel); //va inserer les donnees au niveau de la base
+			connexion.insertData(nom, prenom, mail, tel, region, dateArrivee); //va inserer les donnees au niveau de la base
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

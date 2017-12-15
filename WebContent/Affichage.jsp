@@ -128,7 +128,7 @@
 					pendant <b><%=request.getParameter("nbNuit")%></b> nuit(s), à
 					partir du <b><%=request.getParameter("dateArrivee")%></b>.
 				</p>
-				<p>Vous pouvez régler la somme de ... dès à présent pour
+				<p>Vous pouvez régler la somme de <b><%=request.getParameter("prixTotal")%></b> dès à présent pour
 					réserver votre séjour.</p>
 			</div>
 			<!-- affichage du devis, bouton confirmation, bouton impression de la facture -->

@@ -19,7 +19,7 @@ public class ConnexionSQL {
 		System.out.println("go!");
 	}
 
-	public void insertData(String nom, String prenom, String mail, String tel) throws SQLException //exception qd ça ne marche pas
+	public void insertData(String nom, String prenom, String mail, String tel, String region, String dateArivee) throws SQLException //exception qd ça ne marche pas
 	{
 		// interface permettant l'execution de requetes sql
 		Statement statement = null; // objet statement 
@@ -27,7 +27,7 @@ public class ConnexionSQL {
 		try {
 			statement = connection.createStatement();
 			// obligé de mettre les accents AltGr+7, pas de simple quote. Alternance langage java et mysql, c'est pour ça les doubles et simples quotes
-			String sql = "INSERT INTO `reservation` (`nom`, `prenom`, `mail`, `tel`) VALUES ('" + nom + "', '" + prenom + "', '" + mail + "', '" + tel + "')"; 
+			String sql = "INSERT INTO `reservation` (`nom`, `prenom`, `mail`, `telephone`,`region`,`date d'arrivee`) VALUES ('" + nom + "', '" + prenom + "', '" + mail + "', '" + tel + "', '" + region + "', '" + dateArivee + "')"; 
 			statement.executeUpdate(sql); // execute la chaine de caracteres du dessus sous forme de requete
 		}
 		catch(SQLException e){
